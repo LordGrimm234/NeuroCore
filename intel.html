@@ -41,6 +41,7 @@
       gap: 30px;
       padding: 20px;
       background-color: #091628;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -92,7 +93,7 @@
       position: fixed;
       bottom: 90px;
       right: 20px;
-      width: 300px;
+      width: 320px;
       max-height: 400px;
       background-color: #0d223a;
       border-radius: 12px;
@@ -116,6 +117,7 @@
       padding: 10px;
       overflow-y: auto;
       font-size: 0.9em;
+      height: 260px;
     }
 
     .chat-message {
@@ -174,32 +176,32 @@
 
   <section id="technology">
     <h2>Technology</h2>
-    <p>NeuroCore integrates lab-grown neurons with microchips using advanced electrodes. AI protocols train these neurons to learn, adapt, and evolve — producing a self-learning hybrid system that mirrors the brain's efficiency.</p>
+    <p>NeuroCore merges biology and computing through a process of cultivating neurons in a lab, placing them on microchips with electrodes, and training them using AI-driven electrical signals. The result is a self-learning system that mimics the efficiency of the human brain.</p>
   </section>
 
   <section id="applications">
     <h2>Applications</h2>
     <ul>
-      <li>Deep-space missions</li>
-      <li>Adaptive robotics</li>
-      <li>Brain disease modeling</li>
-      <li>Military AI systems</li>
+      <li>🌌 Deep-space missions with ultra-low power onboard systems</li>
+      <li>🤖 Adaptive robotics that learn in real time</li>
+      <li>🧠 Brain disease modeling and drug testing on living neural chips</li>
+      <li>🛡️ Compact military AI for defense and intelligence operations</li>
     </ul>
   </section>
 
   <section id="ethics">
-    <h2>Ethical Standards</h2>
-    <p>NeuroCore follows strict ethical sourcing of neurons, secure data management, long-term system stability, and full regulatory compliance for bio-digital safety.</p>
+    <h2>Ethical Framework</h2>
+    <p>NeuroCore ensures ethical neuron sourcing, secure biological data protocols, system safety, and full regulatory compliance for responsible bio-digital development.</p>
   </section>
 
   <section id="market">
     <h2>Market Potential</h2>
-    <p>The biocomputing market is projected to exceed $50B by 2035. NeuroCore is positioned as a platform technology with deep IP value and global demand.</p>
+    <p>Biocomputing is projected to surpass $50 billion by 2035. With AI hardware growing at 30%+ CAGR, NeuroCore’s neuron-based chips offer significant platform and IP opportunities.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email us at <strong>contact@neurocore.tech</strong></p>
+    <p>Email us at <strong>contact@neurocore.tech</strong> for inquiries or partnerships.</p>
   </section>
 
   <footer>
@@ -213,7 +215,7 @@
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">Ask NeuroCore</div>
     <div class="chat-body" id="chatBody">
-      <div class="chat-message bot">Hi! I'm your NeuroCore Assistant. Ask me anything.</div>
+      <div class="chat-message bot">Hi! I'm the NeuroCore Assistant. Ask me anything.</div>
     </div>
     <div class="chat-input">
       <input type="text" id="chatInput" placeholder="Type your question..." />
@@ -225,6 +227,7 @@
     function toggleChat() {
       const chatWindow = document.getElementById('chatWindow');
       chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+      chatWindow.style.flexDirection = 'column';
     }
 
     function sendMessage() {
@@ -253,15 +256,15 @@
       msg = msg.toLowerCase();
 
       if (msg.includes('neurocore')) {
-        return "NeuroCore is the world's first living computer, combining lab-grown neurons with smart chips.";
+        return "NeuroCore is the world’s first living computer that integrates lab-grown neurons with AI chips.";
       } else if (msg.includes('how') && msg.includes('work')) {
-        return "Neurons are placed on chips and trained with AI signals. They adapt and learn like a biological brain.";
+        return "Neurons are trained using electrical signals on chips, forming new synaptic connections that enable learning.";
       } else if (msg.includes('application')) {
-        return "NeuroCore is used in robotics, space tech, medicine, and defense AI systems.";
+        return "NeuroCore can be used in robotics, deep-space missions, medical research, and military AI.";
       } else if (msg.includes('energy') || msg.includes('power')) {
-        return "NeuroCore mimics the brain's efficiency — using much less energy than silicon chips.";
+        return "NeuroCore mimics brain efficiency — consuming far less energy than traditional computing systems.";
       } else {
-        return "Great question! NeuroCore is an evolving technology. Please check our sections above for more info.";
+        return "I'm still learning! Please check the main sections above or rephrase your question.";
       }
     }
   </script>
