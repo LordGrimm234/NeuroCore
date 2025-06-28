@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuroCore - The World's First Living Computer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0a1a2f;
+      --accent-color: #ffffff;
+      --highlight-color: #78aaff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 1px solid #1d2d45;
+    }
+
+    header h1 {
+      font-size: 3em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background-color: #091628;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--highlight-color);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      color: var(--highlight-color);
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #091628;
+      text-align: center;
+      padding: 20px;
+      color: #b0b0b0;
+    }
+
+    /* Chatbot Styles */
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e3a5f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background-color: #0d223a;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .chat-header {
+      background-color: #112f50;
+      padding: 10px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 0.9em;
+    }
+
+    .chat-message {
+      margin: 8px 0;
+    }
+
+    .bot {
+      color: #78aaff;
+    }
+
+    .user {
+      text-align: right;
+      color: #ffffff;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #1f3b5a;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background-color: #0d223a;
+      color: white;
+    }
+
+    .chat-input button {
+      background-color: #78aaff;
+      color: #0a1a2f;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .chat-input input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NeuroCore</h1>
+    <p>The World's First Living Computer</p>
+  </header>
+
+  <nav>
+    <a href="#technology">Technology</a>
+    <a href="#applications">Applications</a>
+    <a href="#ethics">Ethics</a>
+    <a href="#market">Market</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="technology">
+    <h2>Technology</h2>
+    <p>NeuroCore integrates lab-grown neurons with microchips using advanced electrodes. AI protocols train these neurons to learn, adapt, and evolve — producing a self-learning hybrid system that mirrors the brain's efficiency.</p>
+  </section>
+
+  <section id="applications">
+    <h2>Applications</h2>
+    <ul>
+      <li>Deep-space missions</li>
+      <li>Adaptive robotics</li>
+      <li>Brain disease modeling</li>
+      <li>Military AI systems</li>
+    </ul>
+  </section>
+
+  <section id="ethics">
+    <h2>Ethical Standards</h2>
+    <p>NeuroCore follows strict ethical sourcing of neurons, secure data management, long-term system stability, and full regulatory compliance for bio-digital safety.</p>
+  </section>
+
+  <section id="market">
+    <h2>Market Potential</h2>
+    <p>The biocomputing market is projected to exceed $50B by 2035. NeuroCore is positioned as a platform technology with deep IP value and global demand.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email us at <strong>contact@neurocore.tech</strong></p>
+  </section>
+
+  <footer>
+    &copy; 2025 NeuroCore Inc. All rights reserved.
+  </footer>
+
+  <!-- Floating Chatbot Button -->
+  <button class="chat-icon" onclick="toggleChat()">💬</button>
+
+  <!-- Chat Window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">Ask NeuroCore</div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message bot">Hi! I'm your NeuroCore Assistant. Ask me anything.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Type your question..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chatWindow = document.getElementById('chatWindow');
+      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const chatBody = document.getElementById('chatBody');
+      const message = input.value.trim();
+      if (!message) return;
+
+      // User message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-message user';
+      userMsg.textContent = message;
+      chatBody.appendChild(userMsg);
+
+      // Bot response
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-message bot';
+      botMsg.textContent = getBotReply(message);
+      chatBody.appendChild(botMsg);
+
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function getBotReply(msg) {
+      msg = msg.toLowerCase();
+
+      if (msg.includes('neurocore')) {
+        return "NeuroCore is the world's first living computer, combining lab-grown neurons with smart chips.";
+      } else if (msg.includes('how') && msg.includes('work')) {
+        return "Neurons are placed on chips and trained with AI signals. They adapt and learn like a biological brain.";
+      } else if (msg.includes('application')) {
+        return "NeuroCore is used in robotics, space tech, medicine, and defense AI systems.";
+      } else if (msg.includes('energy') || msg.includes('power')) {
+        return "NeuroCore mimics the brain's efficiency — using much less energy than silicon chips.";
+      } else {
+        return "Great question! NeuroCore is an evolving technology. Please check our sections above for more info.";
+      }
+    }
+  </script>
+
+</body>
+</html>
